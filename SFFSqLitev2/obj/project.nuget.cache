@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NOotHi483NgHtHbzvnP1/t2htFNWnZogNoZ7pp7Qiv89cqCB4wSaNxRRzo1pV5z/lmO76D/VsUGHu4x5c4jyHg==",
+  "dgSpecHash": "SARxMUTB2Wm+96+ALOV6UcpXyywxLplklW4gTimm7/+FPM4uUAEj73ltt26k7s+P+NG7c7ZbQchFKCw/oBEHPQ==",
   "success": true,
-  "projectFilePath": "/Users/filipaltdelete/Desktop/Kod/SFFSqLitev2/SFFSqLite.csproj",
+  "projectFilePath": "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/SFFSqLite.csproj",
   "expectedPackageFiles": [
     "/Users/filipaltdelete/.nuget/packages/microsoft.aspnetcore.authorization/1.1.2/microsoft.aspnetcore.authorization.1.1.2.nupkg.sha512",
     "/Users/filipaltdelete/.nuget/packages/microsoft.aspnetcore.hosting.abstractions/1.1.2/microsoft.aspnetcore.hosting.abstractions.1.1.2.nupkg.sha512",

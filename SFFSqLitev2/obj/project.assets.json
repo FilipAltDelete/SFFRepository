@@ -9499,11 +9499,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/filipaltdelete/Desktop/Kod/SFFSqLitev2/SFFSqLite.csproj",
+      "projectUniqueName": "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/SFFSqLite.csproj",
       "projectName": "SFFSqLite",
-      "projectPath": "/Users/filipaltdelete/Desktop/Kod/SFFSqLitev2/SFFSqLite.csproj",
+      "projectPath": "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/SFFSqLite.csproj",
       "packagesPath": "/Users/filipaltdelete/.nuget/packages/",
-      "outputPath": "/Users/filipaltdelete/Desktop/Kod/SFFSqLitev2/obj/",
+      "outputPath": "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/filipaltdelete/.nuget/NuGet/NuGet.Config"

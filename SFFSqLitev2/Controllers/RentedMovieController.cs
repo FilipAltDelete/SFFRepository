@@ -33,7 +33,6 @@ namespace SFFSqLite.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<List<RentedMovie>>> GetRentedMovie(int id)
         {
-            //var rentedMovie = await _context.RentedMovies.Include(s => s.Studio).Include(m => m.Studio).Where(a => a.Id == id).FirstAsync();
             var rentedMovie = await _context.RentedMovies.Where(s => s.Id == id).Include(a => a.Movie).Include(a => a.Studio).ToListAsync();
 
             if (rentedMovie == null)
@@ -133,10 +132,6 @@ namespace SFFSqLite.Controllers
                 _context.RentedMovies.Remove(rentedMovie);
                 await _context.SaveChangesAsync();
                 throw new Exception("DENIED!!!!");
-                /*
-                _context.RentedMovies.Remove(rentedMovie);
-                await _context.SaveChangesAsync();
-                */
                 
             }
             
@@ -147,7 +142,7 @@ namespace SFFSqLite.Controllers
             return CreatedAtAction("GetRentedMovie", new { id = rentedMovie.Id }, rentedMovie);
         }
 
-                // DELETE: api/RentedMovie/5
+        // DELETE: api/RentedMovie/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<RentedMovie>> ReturnRentedMovie(int id)
         {

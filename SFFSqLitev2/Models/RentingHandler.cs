@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using XNode;
-using Newtonsoft.Json;
-using System.Xml.Serialization;
 
 namespace SFFSqLite.Models
 {

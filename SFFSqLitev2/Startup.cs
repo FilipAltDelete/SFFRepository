@@ -13,7 +13,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using SFFSqLite.Models;
-using Newtonsoft.Json;
 using Microsoft.Net.Http.Headers;
 
 namespace SFFSqLite
@@ -39,7 +38,6 @@ namespace SFFSqLite
                     builder.WithOrigins("http://127.0.0.1:5500").AllowAnyHeader().AllowAnyMethod();
                 });
             });
-
             
             services.AddMvc(options =>
             {
