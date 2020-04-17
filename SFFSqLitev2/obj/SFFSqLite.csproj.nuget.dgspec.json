@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/SFFSqLite.csproj": {}
+    "/Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/SFFSqLite.csproj": {}
   },
   "projects": {
-    "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/SFFSqLite.csproj": {
+    "/Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/SFFSqLite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/SFFSqLite.csproj",
+        "projectUniqueName": "/Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/SFFSqLite.csproj",
         "projectName": "SFFSqLite",
-        "projectPath": "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/SFFSqLite.csproj",
+        "projectPath": "/Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/SFFSqLite.csproj",
         "packagesPath": "/Users/filipaltdelete/.nuget/packages/",
-        "outputPath": "/Users/filipaltdelete/Desktop/SFFRepository/SFFSqLitev2/obj/",
+        "outputPath": "/Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/filipaltdelete/.nuget/NuGet/NuGet.Config"
