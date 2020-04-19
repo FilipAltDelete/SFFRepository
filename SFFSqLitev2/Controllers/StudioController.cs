@@ -40,7 +40,7 @@ namespace SFFSqLite.Controllers
 
             return studio;
         }
-        
+
 
         // PUT: api/Studio/5
         [HttpPut("{id}")]
@@ -74,23 +74,11 @@ namespace SFFSqLite.Controllers
 
         // POST: api/Studio
         [HttpPost]
-        public async Task<ActionResult<Studio>> PostStudio(Studio[] studioArr)
+        public async Task<ActionResult<Studio>> PostStudio(Studio studio)
         {
-            
-            Studio studio = new Studio();
-            foreach (var item in studioArr)
-            {
-                studio.Id = item.Id;
-                studio.Name = item.Name;
-                studio.City = item.City;
-                
-                _context.Studios.Add(studio);
-                await _context.SaveChangesAsync();
-            }
-            /*
             _context.Studios.Add(studio);
             await _context.SaveChangesAsync();
-            */
+
             return CreatedAtAction("GetStudio", new { id = studio.Id }, studio);
         }
 

@@ -24,7 +24,9 @@ namespace SFFSqLite.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMovies()
         {
+
             return await _context.Movies.ToListAsync();
+
         }
 
         // GET: api/Movie/5
@@ -71,27 +73,32 @@ namespace SFFSqLite.Controllers
             return NoContent();
         }
 
-        
+
         // POST: api/Movie
         [HttpPost]
-        public async Task<ActionResult<Movie>> PostMovie(Movie[] movieArr)
+        public async Task<ActionResult<Movie>> PostMovie(Movie movie)
         {
-            Movie movie = new Movie();
+
+
+            //Movie movie = new Movie();
+            /*
             foreach (var item in movieArr)
             {
-                movie.Id = item.Id;
-                movie.Title = item.Title;
-                movie.Genre = item.Genre;
-                movie.MaxRentAmount = item.MaxRentAmount;
-                _context.Movies.Add(movie);
-                await _context.SaveChangesAsync();
+                //movie.Id = item.Id;
+                //movie.Title = item.Title;
+                //movie.Genre = item.Genre;
+                //movie.MaxRentAmount = item.MaxRentAmount;
+                //_context.Movies.Add(movie);
             }
+            */
+            _context.Movies.Add(movie);
+            await _context.SaveChangesAsync();
             /*
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
             */
 
-            return CreatedAtAction("GetMovie", new { id = movie.Id }, movie);
+            return CreatedAtAction("GetMovie", movie);
         }
 
         // DELETE: api/Movie/5

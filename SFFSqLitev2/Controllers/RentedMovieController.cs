@@ -15,7 +15,7 @@ namespace SFFSqLite.Controllers
     {
         private readonly SFFContext _context;
         private readonly RentingHandler rentingHandler;
-        
+
         public RentedMovieController(SFFContext context, RentingHandler renting)
         {
             _context = context;
@@ -42,8 +42,8 @@ namespace SFFSqLite.Controllers
 
             return rentedMovie;
         }
-        
-        
+
+
 
         [HttpGet("{id}/Movies")]
         public async Task<ActionResult<List<RentedMovie>>> GetRentedMoviesFromStudio(int id)
@@ -57,9 +57,9 @@ namespace SFFSqLite.Controllers
 
             return rentedMovie;
         }
-        
-        
-        
+
+
+
         // GET: http://localhost:5000/api/RentedMovie/Etikett/movieId/2/studioId/2
         [HttpGet("Etikett/movieId/{movieId}/studioId/{studioId}")]
         [Produces("application/xml")]
@@ -79,10 +79,10 @@ namespace SFFSqLite.Controllers
             }
 
             var etikett = rentingHandler.ReturnEtikett(movie, studio);
-            
+
             return etikett;
         }
-        
+
 
         // PUT: api/RentedMovie/5
         [HttpPut("{id}")]
@@ -119,7 +119,10 @@ namespace SFFSqLite.Controllers
         [HttpPost]
         public async Task<ActionResult<RentedMovie>> PostRentedMovie(RentedMovie rentedMovie)
         {
-
+            /*
+            rentedMovie.MovieId = Convert.ToInt32(rentedMovie.MovieId);
+            rentedMovie.StudioId = Convert.ToInt32(rentedMovie.StudioId);
+            */
             var movie = _context.Movies.Where(i => i.Id == rentedMovie.MovieId).First();
             _context.RentedMovies.Add(rentedMovie);
             await _context.SaveChangesAsync();
@@ -132,9 +135,9 @@ namespace SFFSqLite.Controllers
                 _context.RentedMovies.Remove(rentedMovie);
                 await _context.SaveChangesAsync();
                 throw new Exception("DENIED!!!!");
-                
+
             }
-            
+
             var rentReciept = _context.RentedMovies.Include(i => i.Movie).Include(i => i.Studio).OrderByDescending(i => i.Id).First();
             string reciept = "Studio: " + rentReciept.Studio.Name + "\nCity: " + rentReciept.Studio.City + "\nRented movie: " + rentReciept.Movie.Title + "\nDate: " + DateTime.Now;
             Console.WriteLine(reciept);
@@ -152,14 +155,13 @@ namespace SFFSqLite.Controllers
             {
                 return NotFound();
             }
-            
+
             _context.RentedMovies.Remove(rentedMovie);
             await _context.SaveChangesAsync();
 
             return rentedMovie;
         }
-
-        // DELETE: api/RentedMovie/5
+        // skitmetoder osv...
         [HttpDelete("{id}/grade/{gradeValue}/comment/{commentString}")]
         public async Task<ActionResult<RentedMovie>> ReturnRentedMovie(int id, int gradeValue, string commentString)
         {
@@ -179,13 +181,12 @@ namespace SFFSqLite.Controllers
         }
 
         //Skickar deletar en film, sätter betyg och trivia
-        // DELETE: api/RentedMovie/5
         [HttpDelete("{id}/grade/{gradeValue}/comment/{commentString}/trivia/{triviaString}")]
-        public async Task<ActionResult<RentedMovie>> ReturnRentedMovie(int id, int gradeValue,string commentString ,string triviaString)
+        public async Task<ActionResult<RentedMovie>> ReturnRentedMovie(int id, int gradeValue, string commentString, string triviaString)
         {
             var rentedMovie = _context.RentedMovies.Where(i => i.Id == id).First();
             var movieReview = rentingHandler.ReviewRentedMovie(gradeValue, commentString, rentedMovie);
-            var movieTrivia = rentingHandler.AddTrivia(triviaString,rentedMovie);
+            var movieTrivia = rentingHandler.AddTrivia(triviaString, rentedMovie);
 
             if (rentedMovie == null)
             {

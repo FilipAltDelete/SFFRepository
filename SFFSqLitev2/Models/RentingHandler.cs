@@ -10,6 +10,8 @@ namespace SFFSqLite.Models
         {
 
             var totalDuplicates = totalRentedMovieList.GroupBy(rentedMovie => rentedMovie.MovieId);
+            var asd = totalRentedMovieList.Where(m => m.MovieId == movie.Id).Count();
+            
 
             foreach (var group in totalDuplicates)
             {
