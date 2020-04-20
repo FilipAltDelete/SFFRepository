@@ -10,8 +10,11 @@ namespace SFFSqLite.Models
         {
 
             var totalDuplicates = totalRentedMovieList.GroupBy(rentedMovie => rentedMovie.MovieId);
+
+            // Ny funktion som räknar istället för att grupperar.
+            // Mycket bättre att använda den istället men inte lika roligt :)
             var asd = totalRentedMovieList.Where(m => m.MovieId == movie.Id).Count();
-            
+
 
             foreach (var group in totalDuplicates)
             {
@@ -48,7 +51,7 @@ namespace SFFSqLite.Models
         }
 
 
-        public Review ReviewRentedMovie(int gradeValue,string comment ,RentedMovie movieToReturn)
+        public Review ReviewRentedMovie(int gradeValue, string comment, RentedMovie movieToReturn)
         {
 
             Review r = new Review();
@@ -61,7 +64,7 @@ namespace SFFSqLite.Models
             return r;
         }
 
-        public Review ReviewMovie(int gradeValue,string comment ,Movie movie, Studio studio)
+        public Review ReviewMovie(int gradeValue, string comment, Movie movie, Studio studio)
         {
 
             Review r = new Review();
