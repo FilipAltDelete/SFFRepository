@@ -142,7 +142,7 @@ namespace SFFSqLite.Controllers
             string reciept = "Studio: " + rentReciept.Studio.Name + "\nCity: " + rentReciept.Studio.City + "\nRented movie: " + rentReciept.Movie.Title + "\nDate: " + DateTime.Now;
             Console.WriteLine(reciept);
 
-            return CreatedAtAction("GetRentedMovie", new { id = rentedMovie.Id }, rentedMovie);
+            return null; //CreatedAtAction("GetRentedMovie", new { id = rentedMovie.Id }, rentedMovie);
         }
 
         // DELETE: api/RentedMovie/5

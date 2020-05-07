@@ -41,6 +41,20 @@ namespace SFFSqLite.Controllers
             return trivia;
         }
 
+
+        [HttpGet("{id}/Trivias")]
+        public async Task<ActionResult<IEnumerable<Trivia>>> GetTriviaWithSameMovie(int id)
+        {
+            var trivias = await _context.Trivias.Where(r => r.MovieId == id).Include(a => a.Movie).ToListAsync();
+
+            if (trivias == null)
+            {
+                return NotFound();
+            }
+
+            return trivias;
+        }
+
         // PUT: api/Trivia/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTrivia(int id, Trivia trivia)
@@ -73,19 +87,13 @@ namespace SFFSqLite.Controllers
 
         // POST: api/Trivia
         [HttpPost]
-        public async Task<ActionResult<Trivia>> PostTrivia(Trivia[] triviaArr)
+        public async Task<ActionResult<Trivia>> PostTrivia(Trivia trivia)
         {
-            Trivia trivia = new Trivia();
-            foreach (var item in triviaArr)
-            {
-                trivia.Id = item.Id;
-                trivia.MovieId = item.MovieId;
-                trivia.TriviaString = item.TriviaString;
+
             _context.Trivias.Add(trivia);
             await _context.SaveChangesAsync();
-            }
 
-            return CreatedAtAction("GetTrivia", new { id = trivia.Id }, trivia);
+            return null; //CreatedAtAction("GetTrivia", new { id = trivia.Id }, trivia);
         }
 
         // DELETE: api/Trivia/5

@@ -587,3 +587,5 @@
 /Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/obj/Debug/netcoreapp3.1/SFFSqLite.dll
 /Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/obj/Debug/netcoreapp3.1/SFFSqLite.pdb
 /Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/obj/Debug/netcoreapp3.1/SFFSqLite.genruntimeconfig.cache
+/Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/bin/Debug/netcoreapp3.1/System.Net.Http.Formatting.dll
+/Users/filipaltdelete/Code/SFFRepository/SFFSqLitev2/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll

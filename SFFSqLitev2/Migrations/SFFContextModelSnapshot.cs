@@ -24,6 +24,9 @@ namespace SFFSqLite.Migrations
                     b.Property<string>("Genre")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("MaxRentAmount")
                         .HasColumnType("INTEGER");
 

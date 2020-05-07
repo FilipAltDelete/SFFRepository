@@ -29,18 +29,32 @@ namespace SFFSqLite.Controllers
             return await _context.Reviews.ToListAsync();
         }
 
+
+        [HttpGet("{id}/Reviews")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetReviewsWithSameMovie(int id)
+        {
+            var reviews = await _context.Reviews.Where(r => r.MovieId == id).Include(a => a.Movie).Include(a => a.Studio).ToListAsync();
+
+            if (reviews == null)
+            {
+                return NotFound();
+            }
+
+            return reviews;
+        }
+
         // GET: api/Review/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Review>> GetReview(int id)
         {
 
             var review = await _context.Reviews.Include(m => m.Studio).Include(m => m.Movie).Where(r => r.Id == id).FirstAsync();
-            
+
             if (review == null)
             {
                 return NotFound();
             }
-            
+
             return review;
         }
 
@@ -81,7 +95,7 @@ namespace SFFSqLite.Controllers
             _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetReview", new { id = review.Id }, review);
+            return null; //CreatedAtAction("GetReview", new { id = review.Id }, review);
         }
 
         // DELETE: api/Review/5

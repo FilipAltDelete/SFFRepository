@@ -38,18 +38,18 @@ namespace SFFSqLite
                     builder.WithOrigins("http://127.0.0.1:5500").AllowAnyHeader().AllowAnyMethod();
                 });
             });
-            
+
             services.AddMvc(options =>
             {
-             options.FormatterMappings.SetMediaTypeMappingForFormat
-            ("xml", MediaTypeHeaderValue.Parse("application/xml"));
-            options.FormatterMappings.SetMediaTypeMappingForFormat
-            ("config", MediaTypeHeaderValue.Parse("application/xml"));
-             options.FormatterMappings.SetMediaTypeMappingForFormat
-            ("js", MediaTypeHeaderValue.Parse("application/json"));
-             })
+                options.FormatterMappings.SetMediaTypeMappingForFormat
+               ("xml", MediaTypeHeaderValue.Parse("application/xml"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat
+                ("config", MediaTypeHeaderValue.Parse("application/xml"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat
+               ("js", MediaTypeHeaderValue.Parse("application/json"));
+            })
             .AddXmlSerializerFormatters();
-            
+
 
             services.AddDbContext<SFFContext>(opt => opt.UseSqlite("SFFDB"));
             services.AddSingleton<RentingHandler>();

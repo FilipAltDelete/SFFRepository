@@ -79,7 +79,7 @@ namespace SFFSqLite.Controllers
             _context.Studios.Add(studio);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStudio", new { id = studio.Id }, studio);
+            return null; //CreatedAtAction("GetStudio", new { id = studio.Id }, studio);
         }
 
         // DELETE: api/Studio/5

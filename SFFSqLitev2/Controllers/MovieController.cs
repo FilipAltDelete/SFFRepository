@@ -66,6 +66,7 @@ namespace SFFSqLite.Controllers
                 }
                 else
                 {
+
                     throw;
                 }
             }
@@ -79,26 +80,10 @@ namespace SFFSqLite.Controllers
         public async Task<ActionResult<Movie>> PostMovie(Movie movie)
         {
 
-
-            //Movie movie = new Movie();
-            /*
-            foreach (var item in movieArr)
-            {
-                //movie.Id = item.Id;
-                //movie.Title = item.Title;
-                //movie.Genre = item.Genre;
-                //movie.MaxRentAmount = item.MaxRentAmount;
-                //_context.Movies.Add(movie);
-            }
-            */
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
-            /*
-            _context.Movies.Add(movie);
-            await _context.SaveChangesAsync();
-            */
 
-            return CreatedAtAction("GetMovie", movie);
+            return null; //CreatedAtAction("GetMovie", movie);
         }
 
         // DELETE: api/Movie/5

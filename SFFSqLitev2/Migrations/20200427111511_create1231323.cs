@@ -2,7 +2,7 @@
 
 namespace SFFSqLite.Migrations
 {
-    public partial class _126d5 : Migration
+    public partial class create1231323 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,8 @@ namespace SFFSqLite.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(nullable: true),
                     Genre = table.Column<string>(nullable: true),
-                    MaxRentAmount = table.Column<int>(nullable: false)
+                    MaxRentAmount = table.Column<int>(nullable: false),
+                    ImageURL = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

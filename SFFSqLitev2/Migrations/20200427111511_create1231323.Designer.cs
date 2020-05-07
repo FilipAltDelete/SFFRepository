@@ -8,8 +8,8 @@ using SFFSqLite.Models;
 namespace SFFSqLite.Migrations
 {
     [DbContext(typeof(SFFContext))]
-    [Migration("20200415115453_126d5")]
-    partial class _126d5
+    [Migration("20200427111511_create1231323")]
+    partial class create1231323
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,9 @@ namespace SFFSqLite.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Genre")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageURL")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("MaxRentAmount")
