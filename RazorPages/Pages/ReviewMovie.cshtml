@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPages.Pages.ReviewMovieModel
+@{
+}
+<br><br><br>
+
+<h2>Review Movie</h2>
+<img src="@Model.FetchedMovie.ImageURL">
+
+<form method="POST">
+  <input type="hidden" id="movieId" name="movieId" value="@Model.FetchedMovie.Id"><br><br>
+  <label for="grade">Grade: </label><br>
+  <input type="number" id="newGrade" name="newGrade" ><br>
+  <label for="comment">Comment: </label><br>
+  <input type="text" id="newComment" name="newComment" ><br><br>
+  <input href="" type="submit" value="Submit">
+</form> 

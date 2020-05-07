@@ -1,0 +1,138 @@
+﻿@page
+@model RazorPages.Pages.MovieModel
+@{
+    ViewData["Title"] = "Movie";
+}
+
+<br><br><br>
+
+<div style="width: 30%; float:left;position: fixed">
+    <br/>
+    <h1>@Model.FetchedMovie.Title</h1>
+    <h2>@Model.FetchedMovie.Genre</h2>
+
+        <img src="@Model.FetchedMovie.ImageURL"></img>    
+<br/><br/>
+        <button class="triviaButton triviaButton2" onclick="location.href='/AddTrivia?id=@Model.FetchedMovie.Id'" id="triviaButtonId" name="triviaButtonId">Add Trivia</button>
+<br/><br/> 
+        <button class="reviewButton reviewButton2" onclick="location.href='/ReviewMovie?id=@Model.FetchedMovie.Id'" id="reviewButtonId" name="reviewButtonId" >Review Movie</button>
+<br/><br/>
+        <form asp-page-handler="delete" method="post">
+            <button class="deleteButton deleteButton2" id="buttonId" name="buttonId" value="@Model.FetchedMovie.Id">Delete Movie</button>
+        </form>
+    <br/>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/>
+
+<div style="width: 70%; float:right">
+    <div style="width: 50%; float:left">
+        <h3>Reviews: </h3> <br/>
+
+        @foreach (var review in Model.Reviews)
+        {
+            
+            <div>
+                <h5>Grade: </h5>
+                <p>@review.Grade</p>
+            </div>
+            <div>
+                <h5>Comment: </h5>
+                <p>@review.Comment</p>
+                
+                @foreach (var studio in @Model.StudiosRelatedToReveiewsSorted)
+                {
+                    if(studio.Id == review.StudioId){
+                        <h5>Studio: </h5>
+                        <p>@studio.Name</p>
+                    }
+                }
+                
+            </div>
+            <br/>
+            <p>_______________________________</p>
+            <br/>
+        }
+    </div>
+
+    <div style="width: 50%; float:right">
+        <h3>Trivias: </h3> <br/>
+        @foreach (var item in Model.Trivias)
+        {
+            <div>
+                <p>@item.TriviaString</p>
+            </div>
+            
+        }
+    </div>
+    
+</div>
+
+<style>
+
+.triviaButton {
+  background-color: #c49c20; /* Gold */
+  border: none;
+  color: white;
+  width: 170px;
+  height: 54px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.triviaButton2:hover {
+  box-shadow: 0 12px 16px 0 rgb(255,255,102),0 17px 50px 0 rgba(255,255,102);
+}
+
+.reviewButton {
+  background-color: #1095c2; /* Blue */
+  border: none;
+  color: white;
+  width: 170px;
+  height: 54px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.7s;
+}
+.reviewButton2:hover {
+  box-shadow: 0 12px 16px 0 rgb(0,250,250),0 17px 50px 0 rgba(0,250,250);
+}
+
+.deleteButton {
+  background-color: rgb(128,0,0); /* Red */
+  border: none;
+  color: white;
+  width: 170px;
+  height: 54px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.deleteButton1 {
+  box-shadow: 0 8px 16px 0 rgb(128,0,0), 0 6px 20px 0 rgba(128,0,0);
+}
+
+.deleteButton2:hover {
+  box-shadow: 0 12px 16px 0 rgb(220,20,60),0 17px 50px 0 rgba(220,20,60);
+}
+
+</style>

@@ -1,0 +1,16 @@
+﻿@page
+@model RazorPages.Pages.AddTriviaModel
+@{
+  ViewData["Title"] = "Trivia";
+}
+<br><br><br>
+
+<h2>Add Trivia</h2>
+<img src="@Model.FetchedMovie.ImageURL">
+
+<form method="POST">
+  <input type="hidden" id="movieId" name="movieId" value="@Model.FetchedMovie.Id"><br><br>
+  <label for="trivia">Trivia: </label><br>
+  <input type="text" id="newTrivia" name="newTrivia" ><br> <br>
+  <input href="" type="submit" value="Submit">
+</form> 
